@@ -9,4 +9,4 @@ To get started:
     bundle
     rails server
     Visit http://localhost:3000/ in a browser
-    
+

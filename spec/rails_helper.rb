@@ -53,5 +53,23 @@ RSpec.configure do |config|
   # Filter lines from Rails gems in backtraces.
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
-  # config.filter_gems_from_backtrace("gem name")
+  # config.filter_gems_from_backtrace("gem name"
+end
+
+module Capybara
+  class Session
+    def has_image?(src)
+      has_xpath?("//img[contains(@src,\"#{src}\")]")
+    end
+  end
+end
+
+Shoulda::Matchers.configure do |config|
+  config.integrate do |with|
+    # Choose a test framework:
+    with.test_framework :rspec
+
+    # Choose one or more libraries:
+    with.library :active_record
+  end
 end
